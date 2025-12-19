@@ -1,77 +1,69 @@
-# Week 1 – System Planning and Distribution Selection  
+# Week 1 – System Planning and Distribution Selection
+
 **CMPN202 Operating Systems Coursework**  
 **Ilhan Mohamed – A00023555**
 
-## 📌 Overview  
-Week 1 focuses on planning the dual VirtualBox setup, choosing an appropriate server OS, configuring the workstation environment, and collecting the initial technical specifications of both systems.
+---
 
+## Overview
 
-# 1️⃣ System Architecture Diagram  
-![Week 1 System Architecture Diagram](week%201%20OS%20diagram.png)
-
-This shows how my Linux Mint workstation VM connects to my Ubuntu Server 22.04 VM using a VirtualBox Host-Only Network.
+Week 1 focuses on planning the dual VirtualBox setup, selecting an appropriate Linux server distribution, configuring the workstation environment, and collecting initial technical and network specifications for both virtual machines.
 
 ---
 
-# 2️⃣ Distribution Selection Justification  
+## 1. System Architecture Diagram
+
+![Week 1 System Architecture Diagram](week1-images/week1-architecture.png)
+
+The diagram above shows how the Linux Mint workstation VM connects to the Ubuntu Server 22.04 VM using a VirtualBox Host-Only Network with SSH enabled for secure administration.
+
+---
+
+## 2. Distribution Selection Justification
+
 **Chosen Server Distribution:** Ubuntu Server 22.04 LTS (Headless)
 
-### ✔ Why I chose Ubuntu Server:
-- Long-term support  
-- Strong documentation  
-- Perfect for SSH-only administration  
-- Lightweight and reliable in VirtualBox  
-- Comes with UFW + AppArmor  
+Ubuntu Server was selected due to its long-term support, strong documentation, and suitability for secure, SSH-only administration. Its lightweight nature makes it reliable within a VirtualBox environment, and it includes built-in security tools such as UFW and AppArmor.
 
-### Alternatives considered:
-Debian Server, Rocky Linux, AlmaLinux, CentOS Stream.
+**Alternatives considered:** Debian Server, Rocky Linux, AlmaLinux, CentOS Stream.
 
 ---
 
-# 3️⃣ Workstation Configuration Decision  
-**Workstation Used:** Linux Mint Desktop VM  
+## 3. Workstation Configuration Decision
 
-### ✔ Why Mint?
-- Full GUI  
-- Easy SSH access  
-- Helps with monitoring + scripting  
-- Matches the dual-system architecture
+**Workstation Used:** Linux Mint Desktop VM
+
+Linux Mint was chosen as the workstation operating system because it provides a full graphical interface, simple SSH connectivity, and a stable environment for monitoring, scripting, and managing the server VM.
 
 ---
 
-# 4️⃣ Network Configuration Documentation  
+## 4. Network Configuration Documentation
 
-### VirtualBox Networking Mode  
-I used a **Host-Only Network**, which allows the two VMs to communicate securely without internet exposure.
+**VirtualBox Networking Mode:** Host-Only Network
 
-### Network Summary  
-| System | IP Address | Interface | Purpose |
-|--------|------------|-----------|---------|
-| Ubuntu Server | *Shown in screenshot below* | enp0s3 | Receives SSH connections |
-| Mint Workstation | *Shown in screenshot below* | Host-Only Adapter | Administers the server |
+A Host-Only Network was used to allow secure communication between the two virtual machines without exposing the server to external networks.
 
-### VirtualBox Settings Evidence  
-*(IP proof is shown in my screenshots in the next section.)*
+### Network Evidence
+
+![VM Network Evidence](week1-images/vm-network-evidence.png)
+
+The screenshot above shows both virtual machines running simultaneously with their assigned IP addresses, confirming correct network configuration and connectivity.
 
 ---
 
-# 5️⃣ System Specification Evidence  
-These commands were run on the **Ubuntu Server** VM to document its system specifications:
+## 5. System Specification Evidence
 
-- `uname -a`  
-- `free -h`  
-- `df -h`  
-- `ip addr`  
-- `lsb_release -a`  
+The following commands were executed on the Ubuntu Server VM to document system specifications:
 
-### 📸 Combined Screenshot Evidence  
-Since I ran all commands during one session, all outputs are visible in the screenshot below:
+- `uname -a`
+- `free -h`
+- `df -h`
+- `ip addr`
+- `lsb_release -a`
 
-![Ubuntu System Specs](Screenshot%202025-12-02%20160825.png)
+### Combined System Specification Output
 
-### 📸 Network Communication Evidence  
-This screenshot shows both VMs running side-by-side, including both IP addresses:
+![Ubuntu System Specifications](week1-images/week1-ubuntu-system-info.png)
 
-![VM Network Evidence](Screenshot%202025-12-02%20161140.png)
+All commands were run during a single session, and their outputs are visible in the screenshot above, confirming system details such as kernel version, memory allocation, storage usage, network interfaces, and OS release information.
 
----
