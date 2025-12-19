@@ -1,84 +1,38 @@
-# Week 2 – Security Configuration and Firewall Setup (Ubuntu)
+# Week 2 – Security Configuration and Firewall Setup
 
-## Objective
-The objective of Week 2 was to secure the Ubuntu virtual machine by:
-- Updating the system
-- Installing and configuring the firewall (UFW)
-- Allowing secure SSH access
-- Verifying firewall status
+**CMPN202 Operating Systems Coursework**  
+**Ilhan Mohamed – A00023555**
 
 ---
 
-## System Update
-The system was first updated to ensure all packages were up to date before applying security settings.
-
-Command used:
-sudo apt update
-
-This ensures the latest security patches and package versions are available.
-
-(See screenshot: week2-apt-update.png)
+## 📌 Overview
+Week 2 focuses on securing the Ubuntu Server virtual machine by configuring the Uncomplicated Firewall (UFW). The aim was to restrict unauthorised network access while ensuring secure remote administration through SSH.
 
 ---
 
-## Installing UFW Firewall
-UFW (Uncomplicated Firewall) was installed to manage network traffic securely.
+## 1️⃣ Firewall Configuration (UFW)
 
-Command used:
-sudo apt install ufw -y
+Before enabling the firewall, SSH access was explicitly allowed to prevent accidental lockout from the server during remote administration.
 
-UFW was already installed but verified to be the latest version.
+![Week 2 SSH Allowed](week2-images/week2-ufw-ssh-allowed.png)
 
-(See screenshot: week2-ufw-install.png)
+Allowing SSH ensures that port 22 remains open so the server can continue to be accessed securely from the Linux Mint workstation.
 
 ---
 
-## Checking Firewall Status
-Before enabling the firewall, its status was checked.
+## 2️⃣ Enabling and Verifying Firewall Status
 
-Command used:
-sudo ufw status verbose
+Once SSH access was permitted, the firewall was enabled and its status verified to confirm that the security rules were applied correctly.
 
-The firewall was initially inactive.
+![Week 2 UFW Enabled Status](week2-images/week2-ufw-enabled-status.png)
 
-(See screenshot: week2-ufw-status-inactive.png)
-
----
-
-## Allowing SSH Access
-SSH access was allowed to prevent remote lockout when enabling the firewall.
-
-Command used:
-sudo ufw allow ssh
-
-This opened port 22 for secure remote connections.
+The output confirms that:
+- UFW is active and running
+- Incoming connections are restricted by default
+- SSH traffic is explicitly allowed
+- The firewall starts automatically at system boot
 
 ---
 
-## Enabling the Firewall
-The firewall was then enabled.
-
-Command used:
-sudo ufw enable
-
-The firewall became active and started automatically at system startup.
-
----
-
-## Final Firewall Verification
-The firewall status was checked again to confirm the configuration.
-
-Command used:
-sudo ufw status verbose
-
-Results:
-- Firewall status: Active
-- Default policy: Deny incoming, Allow outgoing
-- SSH (port 22) allowed
-
-(See screenshot: week2-ufw-status-active.png)
-
----
-
-## Reflection
-In Week 2, I successfully secured the Ubuntu virtual machine by configuring the firewall using UFW. This ensures protection against unauthorised access while allowing secure SSH connections. This is an essential step in building a secure operating system environment.
+## 🧠 Reflection
+In Week 2, I successfully configured basic network security on the Ubuntu Server using UFW. By enabling the firewall and allowing only essential services such as SSH, the server is protected against unauthorised access while remaining fully manageable remotely. This step is essential in building a secure and controlled operating system environment.
