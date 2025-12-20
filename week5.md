@@ -27,6 +27,7 @@ All configuration and security checks were verified from the Linux Mint workstat
 
 ![Linux Mint network verification](week5-images/w5-mint-network-connectivity.png)
 
+
 ## Issues Encountered and Resolution
 During the setup process, temporary network resolution issues were encountered, which resulted in errors when attempting to reach Ubuntu archive servers during updates. This was resolved by confirming network connectivity and re-running the update commands once connectivity was restored. This highlighted the importance of verifying network access before performing security updates.
 
